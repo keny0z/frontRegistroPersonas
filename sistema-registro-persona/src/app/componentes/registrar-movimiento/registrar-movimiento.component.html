@@ -1,0 +1,32 @@
+<div class="jumbotron">
+    <h2>
+        Registrar movimiento
+    </h2>
+    <p>
+        Diligencie el siguiente formulario para el registro de un movimiento
+    </p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <form (ngSubmit)="registrar()" #personaForm="ngForm" autocomplete="off">
+
+                    <div class="form-group">
+                        <label for="idPersona">
+                          ID persona
+                        </label>
+                        <input type="number" class="form-control" name="idPersona" id="idPersona" #idPersona="ngModel" [(ngModel)]="persona.idPersona" placeholder="Ingrese un ID" required/>
+                        <div class="alert alert-danger" *ngIf="idPersona.invalid && (idPersona.dirty || idPersona.touched) ">
+                            <div *ngIf="idPersona?.errors.required ">El ID de la persona es obligatorio</div>
+
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success" [disabled]="!personaForm.form.valid">
+                        Registrar movimiento
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="jumbotron">
+    <h2>
+        Listado de Entradas y Salidas
+    </h2>
+    <p>
+        Este es el listado de las entradas y salidas de las personas registradas en el sistema
+    </p>
+
+
+    <div *ngIf="listadoEntradas.length === 0">
+
+        <div class="alert alert-warning">
+            <strong>Atención</strong> Actualmente no hay registros de entradas existentes en el sistema
+        </div>
+    </div>
+
+
+
+    <div *ngIf="listadoEntradas.length !== 0">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id persona</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Hora de entrada</th>
+                    <th scope="col">Hora de salida</th>
+                    <th scope="col">Tiempo</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+                <tr *ngFor="let entrada of listadoEntradas">
+                    <th scope="row">{{persona.tipoDocumento.nombreDocumento+' '+persona.numeroDocumento}}</th>
+
+                    <td>{{persona.nombres}}</td>
+                    <td>{{persona.apellidos}}</td>
+                </tr>
+
+
+        </table>
+    </div>
+
+</div>

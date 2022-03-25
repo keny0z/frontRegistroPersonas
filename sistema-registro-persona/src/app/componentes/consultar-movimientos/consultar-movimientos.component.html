@@ -1,0 +1,56 @@
+<div class="jumbotron">
+    <h2>
+        Listado de Movimientos
+    </h2>
+    <p>
+        Este es el listado de los movimientos de las personas registradas en el sistema
+    </p>
+
+
+    <div *ngIf="listadoMovimientos.length === 0">
+
+        <div class="alert alert-warning">
+            <strong>Atención</strong> Actualmente no hay registros de movimientos existentes en el sistema
+        </div>
+    </div>
+
+
+
+    <div *ngIf="listadoMovimientos.length !== 0">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID Persona</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Movimiento</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Tiempo</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+
+
+                <tr *ngFor="let movimiento of listadoMovimientos">
+                    <td>{{movimiento.persona.idPersona}}</td>
+                    <td>{{movimiento.persona.nombres | uppercase}}</td>
+                    <td>{{movimiento.persona.apellidos | uppercase}}</td>
+                    <td>{{movimiento.tipoMovimiento.nombreMovimiento | uppercase}}</td>
+                    <td>{{movimiento.fecha | date:'medium'}}</td>
+                    <td>{{movimiento.tiempo+' MINUTOS'}}</td>
+
+
+
+
+
+
+
+
+        </table>
+    </div>
+
+</div>
